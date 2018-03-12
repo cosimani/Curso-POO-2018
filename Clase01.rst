@@ -7,7 +7,7 @@ Clase 01 - POO 2018
 
     :Autor: César Osimani
     :Mail: cesarosimani@gmail.com
-    :Fecha: 13 de marzo de 2018
+    :Fecha: 12 de marzo de 2018
     :Regularidad: 
 	    - 2 parciales 
 	    - Varios parcialitos y cuestionarios (3er nota)
