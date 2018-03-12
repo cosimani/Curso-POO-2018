@@ -2,7 +2,7 @@
 
 .. _rcs_subversion:
 
-Clase 13 - POO 2017
+Clase 13 - POO 2017 (Aún no preparado)
 ===================
 
 Métodos virtuales de QWidget para capturar eventos

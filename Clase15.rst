@@ -2,7 +2,7 @@
 
 .. _rcs_subversion:
 
-Clase 15 - POO 2017
+Clase 15 - POO 2017 (Aún no preparado)
 ===================
 
 Enumeraciones

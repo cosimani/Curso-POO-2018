@@ -2,7 +2,7 @@
 
 .. _rcs_subversion:
 
-Clase 19 - POO 2017
+Clase 19 - POO 2017 (Aún no preparado)
 ===================
 
 Uso de la Clase QGLWidget

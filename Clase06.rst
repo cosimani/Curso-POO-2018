@@ -2,7 +2,7 @@
 
 .. _rcs_subversion:
 
-Clase 06 - POO 2017
+Clase 06 - POO 2017 (Aún no preparado)
 ===================
 
 **Resolución del primer ejercicio de la clase anterior**

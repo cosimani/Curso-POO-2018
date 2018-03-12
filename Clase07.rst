@@ -2,7 +2,7 @@
 
 .. _rcs_subversion:
 
-Clase 07 - POO 2017
+Clase 07 - POO 2017 (Aún no preparado)
 ===================
 
 **CamelCase**: Es escribir con la forma de jorobas de camello con las mayúsculas y minúsculas. 

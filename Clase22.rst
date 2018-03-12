@@ -2,7 +2,7 @@
 
 .. _rcs_subversion:
 
-Clase 22 - POO 2017
+Clase 22 - POO 2017 (Aún no preparado)
 ===================
 
 Funciones inline

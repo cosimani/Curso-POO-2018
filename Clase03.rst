@@ -2,7 +2,7 @@
 
 .. _rcs_subversion:
 
-Clase 03 - POO 2017
+Clase 03 - POO 2017 (Aún no preparado)
 ===================
 
 Utilidades de la biblioteca estándar de C++

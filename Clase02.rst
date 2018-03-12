@@ -2,7 +2,7 @@
 
 .. _rcs_subversion:
   
-Clase 02 - POO 2017
+Clase 02 - POO 2017 (Aún no preparado)
 ===================
 
 :Tarea para Clase 3:

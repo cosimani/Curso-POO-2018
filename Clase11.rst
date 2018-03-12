@@ -2,7 +2,7 @@
 
 .. _rcs_subversion:
 
-Clase 11 - POO 2017
+Clase 11 - POO 2017 (Aún no preparado)
 ===================
 
 **Ejemplo**: slot de la clase Login para que valide usuarios contra la base

@@ -2,7 +2,7 @@
 
 .. _rcs_subversion:
 
-Clase 12 - POO 2017 
+Clase 12 - POO 2017  (Aún no preparado)
 ===================
 
 Primer parcial

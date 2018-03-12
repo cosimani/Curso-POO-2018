@@ -2,7 +2,7 @@
 
 .. _rcs_subversion:
 
-Clase 05 - POO 2017
+Clase 05 - POO 2017 (Aún no preparado)
 ===================
 	
 **Ejemplo:** Control de volumen

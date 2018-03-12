@@ -2,19 +2,19 @@
 
 .. _rcs_subversion:
 
-Clase 01 - POO 2017
+Clase 01 - POO 2018
 ===================
 
     :Autor: César Osimani
     :Mail: cesarosimani@gmail.com
-    :Fecha: 13 de marzo de 2017
+    :Fecha: 13 de marzo de 2018
     :Regularidad: 
 	    - 2 parciales 
-	    - Varios parcialitos (3er nota)
+	    - Varios parcialitos y cuestionarios (3er nota)
 	    - Cumplir los siguientes requisitos
     :Requisitos: 
 	    - Nivel 5 o más en SoloLearn (para C++)
-	    - Ver videos tutoriales y responder preguntas
+	    - Ver videos tutoriales
 	    - Estudio exploratorio sobre algún tema:
 	        - API de Facebook
 	        - API de MercadoLibre
