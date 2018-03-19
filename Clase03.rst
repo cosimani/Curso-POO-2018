@@ -2,8 +2,9 @@
 
 .. _rcs_subversion:
 
-Clase 03 - POO 2017 (Aún no preparado)
+Clase 03 - POO 2018
 ===================
+(Fecha: 19 de marzo)
 
 Utilidades de la biblioteca estándar de C++
 ===========================================
@@ -18,10 +19,10 @@ vector
 
 .. code-block:: c
 
-	vector<int> v1;    // vector vacío
-	vector<int> v2(15);    // vector de 15 elementos
-	vector<string> v3(18, "cadena");    // 18 elemento con valor inicial
-	vector<string> v4(v3);    // v4 es una copia v3
+	vector< int > v1;    // vector vacío
+	vector< int > v2( 15 );    // vector de 15 elementos
+	vector< string > v3( 18, "cadena" );    // 18 elemento con valor inicial
+	vector< string > v4( v3 );    // v4 es una copia v3
 
 **Algunas operaciones**
 
@@ -32,12 +33,12 @@ vector
 	void clear()    // Limpia el vector
 	front()    // Acceso al primero
 	back()    // Al último
-	push_back(x)    // Inserción al último
+	push_back( x )    // Inserción al último
 	pop_back()    // Elimina
 	w = v    // Asignación
 	v == w    v < w    // Comparaciones
-	v.at(i)    // Acceso con verificación de rango (lanza out_of_range)
-	v[i]    // Acceso sin verificación de rango
+	v.at( i )    // Acceso con verificación de rango (lanza out_of_range)
+	v[ i ]    // Acceso sin verificación de rango
 
 Cadena de caracteres
 ^^^^^^^^^^^^^^^^^^^^
@@ -48,8 +49,8 @@ Cadena de caracteres
 
 	#include <string.h>
 
-	char cadena1[30], cadena2[30];
-	strcpy(cadena1, "Hola");
+	char cadena1[ 30 ], cadena2[ 30 ];
+	strcpy( cadena1, "Hola" );
 	cin >> cadena2;
 	
 - Con C++ usamos   
@@ -60,12 +61,12 @@ Cadena de caracteres
 
 	Asignación			s1 = s2		s1 = "Hola"
 	Concatenación		s1 = s2 + s3	
-	Comparación			if (s1 == s2)
-	Subcadenas			s1.substr(3, 5)
+	Comparación			if ( s1 == s2 )
+	Subcadenas			s1.substr( 3, 5 )
 	Longitud			s1.length()	s2.size()  // Son lo mismo
-	Acceso a char		s1[2]			s2.at(2)  // Lanza out_of_range
+	Acceso a char		s1[ 2 ]			s2.at( 2 )  // Lanza out_of_range
 	Limpiar				s1.clear()
-	Busca cadena		s1.find("cadena");    s1.find(s2);
+	Busca cadena		s1.find( "cadena" );    s1.find( s2 );
 	Puntero a char		const char *c = s1.c_str()
 
 **Ejercicio 2**
@@ -101,11 +102,11 @@ Punteros
 
 .. code-block:: c
 
-	int miArray[10];	// miArray es como un puntero al primer elemento
+	int miArray[ 10 ];	// miArray es como un puntero al primer elemento
 	int* puntero;
 
 	puntero = miArray;  // similar a:  puntero = &miArray[0];
-	(*puntero)++;       // equivale a miArray[0]++;  // incrementa
+	( *puntero )++;       // equivale a miArray[0]++;  // incrementa
 	puntero++;          // equivale a &miArray[1];  // se mueve una posición
 
 	puntero = puntero + 3;  // se desplaza 3 posiciones int
@@ -119,18 +120,42 @@ Punteros
 	#include <QApplication>
 	#include <QDebug>
 
-	int main(int argc, char** argv)  {
-	    QApplication app(argc, argv);
+	int main( int argc, char** argv )  {
+	    QApplication app( argc, argv );
 
 	    int a = 10, b = 100, c = 30, d = 1, e = 54;
-	    int m[10] = {10, 9, 80, 7, 60, 5, 40, 3, 20, 1};
-	    int *p = &m[3], *q = &m[6];
+	    int m[ 10 ] = { 10, 9, 80, 7, 60, 5, 40, 3, 20, 1 };
+	    int *p = &m[ 3 ], *q = &m[ 6 ];
 
 	    ++q;
-	    qDebug() << a + m[d/c] + b-- / *q + 10 + e--;
+	    qDebug() << a + m[ d / c ] + b-- / *q + 10 + e--;
 
 	    p = m;
-	    qDebug() << e + *p + m[9]++;
+	    qDebug() << e + *p + m[ 9 ]++;
 
 	    return 0;
 	}
+
+**Array como parámetro en funciones**
+
+.. code-block:: c
+
+	#include <iostream>
+	using namespace std;
+
+	void funcion( int miArray[] );
+	// Le estamos pasando un puntero al primer elemento del array.
+
+	int main()  {
+	    int miA[ 5 ] = { 0, 1, 2, 3, 4 };
+
+	    funcion( miA );
+
+	    cout << miA[ 0 ] << miA[ 1 ] << miA[ 2 ] << miA[ 3 ] << miA[ 4 ];
+	}
+
+	void funcion( int miArray[] )  {
+	    miArray[ 0 ] = 5;  // Las modificaciones quedarán.
+
+	    miArray[ 3 ] = 5; 
+	} 

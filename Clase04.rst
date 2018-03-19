@@ -13,31 +13,6 @@ Clase 04 - POO 2017 (Aún no preparado)
 	Ver `Tutorial Qt QObject <https://www.youtube.com/watch?v=cDE9hg_Ajwc>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
 
 
-**Array como parámetro en funciones**
-
-.. code-block:: c
-
-	#include <iostream>
-	using namespace std;
-
-	void funcion(int miArray[]);
-	// Le estamos pasando un puntero al primer elemento del array.
-
-	int main()  {
-	    int miA[5] = {0, 1, 2, 3, 4};
-
-	    funcion(miA);
-
-	    cout << miA[0] << miA[1] << miA[2] << miA[3] << miA[4];
-	}
-
-	void funcion(int miArray[])  {
-	    miArray[0] = 5;  // Las modificaciones quedarán.
-
-	    miArray[3] = 5; 
-	} 
-
-
 Clases
 ======
 

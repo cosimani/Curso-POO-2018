@@ -6,7 +6,7 @@ Clase 02 - POO 2018
 ===================
 (Fecha: 13 de marzo)
 
-:Tarea para Clase 3:
+:Tarea para Clase 4:
 	Ver `Tutorial Qt Creator - Introducción <https://www.youtube.com/watch?v=4TEED3VFBfc>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
 
 Biblioteca estándar de C++
@@ -170,37 +170,37 @@ Función Genérica
 
 .. code-block:: c
 
-	void imprimir (int v[], int cantidad)  {
-	    for (int i=0 ; i < cantidad ; i++)
-	        cout << v[i] << " ";
+	void imprimir ( int v[], int cantidad )  {
+	    for ( int i = 0 ; i < cantidad ; i++ )
+	        cout << v[ i ] << " ";
 	}
 
 	int main()  {
-	    int v1[5] = {5, 2, 4, 1, 6};
-	    imprimir(v1, 3);
+	    int v1[ 5 ] = { 5, 2, 4, 1, 6 };
+	    imprimir( v1, 3 );
 	}
 
 - Ahora necesitamos la impresión de un array de float
 
 .. code-block:: c
 
-	void imprimir(float v[], int cantidad);
+	void imprimir( float v[], int cantidad );
 
 - Vemos que las versiones se diferencian por el tipo de datos del array. Entonces podemos utilizar lo siguiente:
 
 .. code-block:: c
 
-	template <class T> void imprimir (T v[], int cantidad)  {
-	    for (int i=0 ; i < cantidad ; i++)
-	        cout << v[i] << " ";
+	template <class T> void imprimir ( T v[], int cantidad )  {
+	    for ( int i=0 ; i < cantidad ; i++ )
+	        cout << v[ i ] << " ";
 	}
 
 	int main()  {
-	    int v1[5] = {5, 2, 4, 1, 6};
-	    float v2[4] = {2.3, 5.1, 0, 2};
+	    int v1[ 5 ] = { 5, 2, 4, 1, 6 };
+	    float v2[ 4 ] = { 2.3, 5.1, 0, 2 };
 
-	    imprimir(v1, 5);  // qué pasa pongo cantidad 10 -> Publica basura 
-	    imprimir(v2, 2);
+	    imprimir( v1, 5 );  // qué pasa pongo cantidad 10 -> Publica basura 
+	    imprimir( v2, 2 );
 	}
 
 - El compilador utiliza el código de la función genérica como plantilla para crear automáticamente dos funciones sustituyendo T por el tipo de dato concreto.
