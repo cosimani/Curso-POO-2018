@@ -40,34 +40,7 @@ vector
 	v.at( i )    // Acceso con verificación de rango (lanza out_of_range)
 	v[ i ]    // Acceso sin verificación de rango
 
-Cadena de caracteres
-^^^^^^^^^^^^^^^^^^^^
 
-- Al estilo C	
-
-.. code-block:: c
-
-	#include <string.h>
-
-	char cadena1[ 30 ], cadena2[ 30 ];
-	strcpy( cadena1, "Hola" );
-	cin >> cadena2;
-	
-- Con C++ usamos   
-
-.. code-block:: c
-
-	#include<string>
-
-	Asignación			s1 = s2		s1 = "Hola"
-	Concatenación		s1 = s2 + s3	
-	Comparación			if ( s1 == s2 )
-	Subcadenas			s1.substr( 3, 5 )
-	Longitud			s1.length()	s2.size()  // Son lo mismo
-	Acceso a char		s1[ 2 ]			s2.at( 2 )  // Lanza out_of_range
-	Limpiar				s1.clear()
-	Busca cadena		s1.find( "cadena" );    s1.find( s2 );
-	Puntero a char		const char *c = s1.c_str()
 
 **Ejercicio 2**
 
@@ -136,26 +109,3 @@ Punteros
 	    return 0;
 	}
 
-**Array como parámetro en funciones**
-
-.. code-block:: c
-
-	#include <iostream>
-	using namespace std;
-
-	void funcion( int miArray[] );
-	// Le estamos pasando un puntero al primer elemento del array.
-
-	int main()  {
-	    int miA[ 5 ] = { 0, 1, 2, 3, 4 };
-
-	    funcion( miA );
-
-	    cout << miA[ 0 ] << miA[ 1 ] << miA[ 2 ] << miA[ 3 ] << miA[ 4 ];
-	}
-
-	void funcion( int miArray[] )  {
-	    miArray[ 0 ] = 5;  // Las modificaciones quedarán.
-
-	    miArray[ 3 ] = 5; 
-	} 
