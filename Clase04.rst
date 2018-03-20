@@ -15,6 +15,27 @@ Clase 04 - POO 2018
 
 
 
+En busca de proyectos
+=====================
+
+Detección de necesidades
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Buscar en el hogar
+- En la Universidad
+- Camino a casa
+- Salir de compras
+- Un familiar en problemas
+
+Hagamos esto
+^^^^^^^^^^^^
+
+- Reunirse en grupo y detecten necesidades
+- No proponer ninguna solución aún
+- Si inevitablemente piensan en alguna solución, no se limiten a que sea una solución tecnológica
+- Enumerar las cinco mejores necesidades, o las cinco mejores para ser solucionadas
+
+
 Cadena de caracteres
 ^^^^^^^^^^^^^^^^^^^^
 
