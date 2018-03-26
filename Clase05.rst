@@ -6,7 +6,7 @@ Clase 05 - POO 2018
 ===================
 (Fecha: 26 de marzo)
 
-:Tarea para Clase 7:
+:Tarea para Clase 8:
 	Entregar los ejercicios que están enumerados incluyendo los de la clase 6
 
 
