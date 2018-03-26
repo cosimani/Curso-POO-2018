@@ -2,8 +2,10 @@
 
 .. _rcs_subversion:
 
-Clase 06 - POO 2017 (Aún no preparado)
+Clase 06 - POO 2018
 ===================
+(Fecha: 27 de marzo)
+
 
 **Resolución del primer ejercicio de la clase anterior**
 
