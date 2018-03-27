@@ -18,7 +18,7 @@ QLineEdit
 	// QLineEdit::Normal  // Se visualizan al escribir
 	// QLineEdit::NoEcho  // No se visualiza nada
 	// QLineEdit::Password  // Se escribe como asteriscos
-	// QLineEdit::PasswordEchoOnEdit  // Se escribe normal y al dejar de editar	se convierten en asteriscos
+	// QLineEdit::PasswordEchoOnEdit  // Se escribe normal y al dejar de editar se convierten en asteriscos
 
 **Señales**
 
