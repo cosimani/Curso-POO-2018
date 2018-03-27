@@ -6,8 +6,102 @@ Clase 06 - POO 2018
 ===================
 (Fecha: 27 de marzo)
 
+QLineEdit
+^^^^^^^^^
 
-**Resolución del primer ejercicio de la clase anterior**
+.. code-block:: c
+
+	QLineEdit* le = new QLineEdit;
+	le->setEchoMode(QLineEdit::Password);
+	le->setEnabled(false);
+
+	// QLineEdit::Normal  // Se visualizan al escribir
+	// QLineEdit::NoEcho  // No se visualiza nada
+	// QLineEdit::Password  // Se escribe como asteriscos
+	// QLineEdit::PasswordEchoOnEdit  // Se escribe normal y al dejar de editar	se convierten en asteriscos
+
+**Señales**
+
+.. code-block:: c
+
+	// void returnPressed()  // Detecta cuando el usuario presiona Enter.
+
+	// void editingFinished()  // Cuando pierde foco.
+
+	// void textChanged(const QString &text)  // Texto modificado por código o por usuario desde la interfaz.
+
+	// void textEdited(const QString &text)  // Sólo por el usuario.
+
+
+QGridLayout
+^^^^^^^^^^^
+
+- Ubica los widgets en una grilla
+- Con setColumnMinimumWidth() podemos setear el ancho mínimo de columna
+- Separación entre widget con setVerticalSpacing(int)
+- void addWidget(QWidget* widget, int fila, int columna, int spanFila, int spanCol)
+
+Macro Q_OBJECT
+^^^^^^^^^^^^^^
+
+- Convierte a una clase cualquiera en una clase Qt.
+- Una clase Qt permitirá trabajar con signals y slots.
+- Con la macro Q_OBJECT en la declaración de la clase la convertimos.
+
+	
+**Ejemplo:** Control de volumen
+
+.. code-block:: c
+
+	#include <QApplication>
+	#include <QWidget>
+	#include <QHBoxLayout>
+	#include <QSlider>
+	#include <QSpinBox>
+
+	int main(int argc, char** argv)  {
+	    QApplication a(argc, argv);
+
+	    QWidget* ventana = new QWidget;  // Es la ventana padre (principal)
+	    ventana->setWindowTitle("Volumen"); 
+	    ventana->resize(300, 50);
+
+	    QSpinBox* spinBox = new QSpinBox;
+	    QSlider* slider = new QSlider(Qt::Horizontal);
+	    spinBox->setRange(0, 100);
+	    slider->setRange(0, 100);
+
+	    QObject::connect(spinBox, SIGNAL(valueChanged(int)), slider, SLOT(setValue(int)));
+	    QObject::connect(slider, SIGNAL(valueChanged(int)),  spinBox, SLOT(setValue(int)));
+
+	    spinBox->setValue(15);
+
+	    QHBoxLayout* layout = new QHBoxLayout;
+	    layout->addWidget(spinBox);
+	    layout->addWidget(slider);
+	    ventana->setLayout(layout);
+	    ventana->setVisible(true);	
+
+	    return a.exec();
+	}
+
+**Ejercicio 3**
+
+- Cuando el valor del QSlider se modifique, colocar como título de la ventana el mismo valor (de 0 a 100). 
+	
+
+**Ejercicio 4**
+
+- Construir un login.
+- Usar asteriscos para la clave.
+- Detectar enter para simular la pulsación del botón.
+- Si la clave ingresada es admin:admin, la aplicación se cerrará.
+- Si se ingresa otra clave se borrará el texto de los QLineEdit.
+
+- Tener en cuenta que este ejercicio requiere conocer cómo se define un slot propio.
+
+
+**Resolución de este ejercicio**
 
 .. code-block:: c
 
@@ -111,163 +205,4 @@ QGroupBox
 
 .. figure:: images/clase04/ejercicio.jpg
 	
-Sutilezas con punteros
-^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: c
-
-	char cadena[10] = "hola";  
-	// Funciona? sí. Qué hace con el sobrante?
-	// Los completa a todos con \000
-
-	char cadena[4] = "hola";   // Por qué no compila?
-
-	char cadena[5] = "hola";   // Y por qué esto sí compila?
-
-	// Porque la última posición se usa para el carácter nulo que el
-	// compilador lo agrega (si tiene lugar).
-
-	//    \000  (octal)
-	//    \x0   (hexadecimal)    
-
-Usando puntero para cadenas
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: c
-
-	char* cadena = "hola";      // el compilador agrega \000
-	char* cadena = "ho\000la";  // Imprime  ho
-
-- Asignamos memoria dinámicamente.
-- No necesitamos especificar la longitud máxima.
-
-Notación octal y hexadecimal
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: c
-
-	cout << 3 + 4 + 11;      // Imprime 18
-	cout << 3 + 4 + 011;     // ?
-
-	//    octal    hexadecimal    decimal
-	//    0121     0x51           81
-	//    011      0x9            9
-	//    '\000'   '\x0'          nulo
-	//    '\063'   '\x33'         carácter 3
-
-Punteros a punteros
-^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: c
-
-	char cadena[2][3];
-	cadena[0][0] = 'f';
-	cadena[0][1] = 'u';
-	cadena[0][2] = 'e';
-	cadena[1][0] = 'f';
-	cadena[1][1] = 'u';
-	cadena[1][2] = 'i';
-
-	//    Mejor así
-
-	char cadena[2][3];
-	cadena[0][0] = 's';
-	cadena[0][1] = 'i';
-	cadena[0][2] = '\000';
-	cadena[1][0] = 'n';
-	cadena[1][1] = 'o';
-	cadena[1][2] = '\000';
- 
-Array ≡ puntero
-^^^^^^^^^^^^^^^
-
-- Cuando declaramos un array
-- Estamos declarando un puntero al primer elemento.
-
-.. code-block:: c
-
-	char arreglo[5];
-	char* puntero;
-	puntero = arreglo;  // Equivale a puntero = &arreglo[0];
-
-Volviendo a puntero a puntero
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: c
-
-	char cadena[2][3] = {{'s', 'i', '\000'}, {'n', 'o', '\000'}};
-	// Y si fuera char cadena[2][3] = {{'s', 'i', '-'}, {'n', 'o', '\000'}};
-	char* p1;
-	char* p2;
-
-	p1 = cadena[0];   // p1 = &cadena[0][0];
-	p2 = cadena[1];   // p2 = &cadena[1][0];
-
-	cout << p1;  // si  
-	cout << p2;  // no
-	
-	cout << *p1;  // ?
-	cout << *p2;  // ?
-
-	// Es decir:
-	//    El identificador de un arreglo unidimensional 
-	//    es considerado un puntero a su primer elemento.
-
-**Ejemplo**
-
-.. code-block:: c
-
-	char p1[] = {'a', 'b', 'c', 'd', 'e'};
-	cout << "Letra " << *p1;   // Letra a
-	cout << "Letra " << p1[0];   // Letra a
-
-	char m2[][5] = {{'a', 'b', 'c', 'd', 'e'}, {'A', 'B', 'C', 'D', 'E'}};
-	cout << "Letra " << **m2;          // Letra a
-	cout << "Letra " << m2[0][0];      // Letra a
-	cout << "Letra " << m2[1][3];      // Letra D
-	cout << "Letra " << *(*(m2+1)+3);  // Letra D
-
-**Extendiendo a arreglos de cualquier dimensión**
-
-.. code-block:: c
-
-	m[a] == *(m+a)
-	m[a][b] == *(*(m+a)+b)
-	m[a][b][c] == *(*(*(m+a)+b)+c)
-
-	//    Si nos referimos al primer elemento
-
-	m[0] == *m
-	m[0][0] == **m
-	m[0][0][0] == ***m
-
-QByteArray
-^^^^^^^^^^
-
-- Se podría decir que es administrador de un char*
-- Se puede usar el operador []
-- Almacena \000 al final de cada objeto QByteArray
-
-QTextEdit
-^^^^^^^^^
-
-- Un QWidget que muestra texto plano o enriquecido
-- Puede mostrar imágenes, listas y tablas
-- La barra de desplazamiento es automática
-- Interpreta tags HTML
-- Seteamos texto con setPlainText()
-
-**Ejercicio 7**
-
-- Crear una aplicación que inicie con un login validando el usuario admin:123
-- Luego de ingresar el usuario válido, mostrar un nuevo QWidget con las siguientes características:
-	- Definida en la clase Editor
-	- Contendrá un QTextEdit vacío, un QPushButton "Buscar" y un QLabel
-	- El usuario podrá escribir cualquier texto en el QTextEdit
-	- Al presionar "Buscar" se detectará automáticamente la cantidad de letras 'a' en el texto y colocará el resultado en el QLabel.
-- Luego de dejar funcionando lo anterior, agregar lo siguiente:
-	- Un QLineEdit y un QPushButton "Borrar"
-	- En este QLineEdit el usuario puede colocar una palabra o frase
-	- Al presionar Borrar se buscará en el texto y se eliminarán
-
 
