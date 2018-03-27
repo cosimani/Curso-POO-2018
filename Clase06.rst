@@ -28,7 +28,7 @@ QLineEdit
 
 	// void editingFinished()  // Cuando pierde foco.
 
-	// void textChanged(const QString &text)  // Texto modificado por código o por usuario desde la interfaz.
+	// void textChanged(const QString &text)  // Texto modificado por código o por usuario desde la gui.
 
 	// void textEdited(const QString &text)  // Sólo por el usuario.
 
