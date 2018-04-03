@@ -2,11 +2,73 @@
 
 .. _rcs_subversion:
 
-Clase 07 - POO 2017 (Aún no preparado)
+Clase 07 - POO 2018
 ===================
+(Fecha: 3 de abril)
+
+QGroupBox
+^^^^^^^^^ 
+
+.. figure:: images/clase05/qgroupbox.png
+
+.. code-block:: c
+
+	QGroupBox* grupo = new QGroupBox("Texto");
+	QGridLayout* layout = new QGridLayout;
+	
+	layout->addWidget(label, 0, 0);
+	layout->addWidget(usuario, 1, 0, 1, 2);
+	layout->addWidget(clave, 2, 0, 1, 2);
+	
+	grupo->setLayout(layout);
+
+**Ejercicio 5**
+
+- Utilizar el login del ejercicio anterior en un proyecto nuevo.
+- Definir la clase Formulario que será un QWidget
+- Formulario tendrá QLabels y QLineEdits para Legajo, Nombre y Apellido y un QPushButton
+- Si la clave ingresada es admin:1111, se cierra Login y se muestra Formulario
+
+**Ejercicio 6**
+
+.. figure:: images/clase04/ejercicio.jpg
+	
+
+QByteArray
+^^^^^^^^^^
+
+- Se podría decir que es administrador de un char*
+- Se puede usar el operador []
+- Almacena \000 al final de cada objeto QByteArray
+
+QTextEdit
+^^^^^^^^^
+
+- Un QWidget que muestra texto plano o enriquecido
+- Puede mostrar imágenes, listas y tablas
+- La barra de desplazamiento es automática
+- Interpreta tags HTML
+- Seteamos texto con setPlainText()
+
+**Ejercicio 7**
+
+- Crear una aplicación que inicie con un login validando el usuario admin:123
+- Luego de ingresar el usuario válido, mostrar un nuevo QWidget con las siguientes características:
+	- Definida en la clase Editor
+	- Contendrá un QTextEdit vacío, un QPushButton "Buscar" y un QLabel
+	- El usuario podrá escribir cualquier texto en el QTextEdit
+	- Al presionar "Buscar" se detectará automáticamente la cantidad de letras 'a' en el texto y colocará el resultado en el QLabel.
+- Luego de dejar funcionando lo anterior, agregar lo siguiente:
+	- Un QLineEdit y un QPushButton "Borrar"
+	- En este QLineEdit el usuario puede colocar una palabra o frase
+	- Al presionar Borrar se buscará en el texto y se eliminarán
 
 
 
+**CamelCase**: Es escribir con la forma de jorobas de camello con las mayúsculas y minúsculas. 
+
+- UpperCamelCase: La primera letra de cada palabra es mayúscula. Ejemplo: EjemploDeUpperCamelCase.
+- lowerCamelCase: Igual a UpperCamelCase con excepción de la primer palabra. Ejemplo: ejemploDeLowerCamelCase
 
 Sutilezas con punteros
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -165,75 +227,7 @@ Volviendo a puntero a puntero
 	} 
 
 
-QGroupBox
-^^^^^^^^^ 
 
-.. figure:: images/clase05/qgroupbox.png
-
-.. code-block:: c
-
-	QGroupBox* grupo = new QGroupBox("Texto");
-	QGridLayout* layout = new QGridLayout;
-	
-	layout->addWidget(label, 0, 0);
-	layout->addWidget(usuario, 1, 0, 1, 2);
-	layout->addWidget(clave, 2, 0, 1, 2);
-	
-	grupo->setLayout(layout);
-
-**Ejercicio 5**
-
-- Utilizar el login del ejercicio anterior en un proyecto nuevo.
-- Definir la clase Formulario que será un QWidget
-- Formulario tendrá QLabels y QLineEdits para Legajo, Nombre y Apellido y un QPushButton
-- Si la clave ingresada es admin:1111, se cierra Login y se muestra Formulario
-
-**Ejercicio 6**
-
-.. figure:: images/clase04/ejercicio.jpg
-	
-
-
-
-
-QByteArray
-^^^^^^^^^^
-
-- Se podría decir que es administrador de un char*
-- Se puede usar el operador []
-- Almacena \000 al final de cada objeto QByteArray
-
-QTextEdit
-^^^^^^^^^
-
-- Un QWidget que muestra texto plano o enriquecido
-- Puede mostrar imágenes, listas y tablas
-- La barra de desplazamiento es automática
-- Interpreta tags HTML
-- Seteamos texto con setPlainText()
-
-**Ejercicio 7**
-
-- Crear una aplicación que inicie con un login validando el usuario admin:123
-- Luego de ingresar el usuario válido, mostrar un nuevo QWidget con las siguientes características:
-	- Definida en la clase Editor
-	- Contendrá un QTextEdit vacío, un QPushButton "Buscar" y un QLabel
-	- El usuario podrá escribir cualquier texto en el QTextEdit
-	- Al presionar "Buscar" se detectará automáticamente la cantidad de letras 'a' en el texto y colocará el resultado en el QLabel.
-- Luego de dejar funcionando lo anterior, agregar lo siguiente:
-	- Un QLineEdit y un QPushButton "Borrar"
-	- En este QLineEdit el usuario puede colocar una palabra o frase
-	- Al presionar Borrar se buscará en el texto y se eliminarán
-
-
-
-
-
-
-**CamelCase**: Es escribir con la forma de jorobas de camello con las mayúsculas y minúsculas. 
-
-- UpperCamelCase: La primera letra de cada palabra es mayúscula. Ejemplo: EjemploDeUpperCamelCase.
-- lowerCamelCase: Igual a UpperCamelCase con excepción de la primer palabra. Ejemplo: ejemploDeLowerCamelCase
 
 El preprocesador
 ^^^^^^^^^^^^^^^^
