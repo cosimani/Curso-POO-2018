@@ -19,7 +19,7 @@ QByteArray
 
 - Se podría decir que es administrador de un char*
 - Se puede usar el operador []
-- Almacena \000 al final de cada objeto QByteArray
+- Almacena \\000 al final de cada objeto QByteArray
 
 QTextEdit
 ^^^^^^^^^
