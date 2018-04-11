@@ -10,6 +10,8 @@ Clase 09 - POO 2018
 Parámetros desde la línea de comandos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+- Escribir el siguiente programa y ejecutarlo desde la línea de comandos incluyendo parámetros:
+
 .. code-block:: c
 
 	#include <iostream>
