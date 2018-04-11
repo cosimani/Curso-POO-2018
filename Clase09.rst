@@ -7,6 +7,21 @@ Clase 09 - POO 2018
 (Fecha: 10 de abril)
 
 
+Parámetros desde la línea de comandos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: c
+
+	#include <iostream>
+
+	int main( int argc, char** argv )  {
+		std::cout << "Hay " << argc << " argumentos:" << std::endl;
+		for ( int i = 0; i < argc; ++i ) {
+			std::cout << argv[ i ] << std::endl;
+		}
+	}
+
+
 El preprocesador
 ^^^^^^^^^^^^^^^^
 
@@ -64,7 +79,6 @@ El preprocesador
 	// . . . 
 
 	#endif // PRINCIPAL_H
-
 
 	
 Dibujar a mano sobre un QWidget
