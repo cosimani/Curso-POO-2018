@@ -185,7 +185,6 @@ Web Service
 	- Google+
 	- Maps
 	- Street View
-	- MercadoLibre
 
 **Google Maps**
 
