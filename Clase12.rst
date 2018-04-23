@@ -2,8 +2,9 @@
 
 .. _rcs_subversion:
 
-Clase 12 - POO 2017  (Aún no preparado)
+Clase 12 - POO 2018
 ===================
+(Fecha: 23 de abril)
 
 Polimorfismo
 ^^^^^^^^^^^^
@@ -68,6 +69,110 @@ Polimorfismo
 
 .. |ImageLink| image:: /images/clase10/explicacion_mexicana.gif
 .. _ImageLink: https://www.youtube.com/watch?v=6lIGfzZ4oqo
+
+
+Conexión a base de datos
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Ejemplo de la estructura de las tablas en la base de datos**
+
+.. figure:: images/clase11/tablas.png 
+
+- Con Qt se pueden utilizar los siguientes motores de base de datos:
+	- **ODBC (Open DataBase Connectivity)**: 
+		- Estándar de acceso a base de datos
+		- Usado con Microsoft Access en Windows
+		- Está disponible en Windows: Panel de control -> Herramientas administrativas -> ODBC Data sources
+			
+	- **SQLite**
+		- Es un sistema de gestión de bases de datos relacional.
+		- En C y libre
+		- Los datos se almacenan en un archivo
+		- No es cliente-servidor. La librería (dll) tiene funciones para trabajar
+		- No requiere instalación, directamente con un ejecutable
+		- Para Linux, Windows, Mac OS, Android, iOS, BlackBerry OS, Windows Phone, ...
+		- Algunas aplicaciones que usan SQLite: Skype, Firefox, Photoshop, ...
+			
+	- **MySQL**
+		- Quizás el motor de base de datos más utilizado
+		- Usado por los más grandes: Facebook, Twitter, YouTube, Wikipedia, ...
+		- Requiere una instalación más avanzada para usar con Qt dependiendo el SO que se utilice.
+		
+Usando SQLite
+^^^^^^^^^^^^^
+
+**Creación de una base de datos SQLite**
+	
+- Descargar de http://www.sqlite.org/download.html
+- Precompiled Binaries for Windows–Linux–MAC (The command-line shell program)
+- En Linux se puede hacer: ``sudo apt-get install sqlite3``
+- Al descomprimir tenemos el ejecutable sqlite3
+- Creamos una carpeta C:/Qt/db (o /home/db) y copiamos ahí el ejecutable
+- En consola creamos una base de datos, por ejemplo, llamada ``test`` con una tabla ``usuarios``
+
+::
+
+	sqlite3 test
+
+	create table usuarios (
+	    id integer primary key,  (es autoincrementable)
+	    usuario varchar(30),
+	    clave varchar(30),
+	    nombre varchar(50),
+	    apellido varchar(50),
+	    mail varchar(50)
+	);
+
+	// Podemos insertar un registro 
+
+	insert into usuarios (usuario, clave,	nombre, apellido, mail) 
+	values ("cgomez", "1234", "Carlos", "Gomez", "cgomez@gmail.com");
+
+	// Podemos ver el contenido de la tabla "usuario":
+
+	select * from usuarios;
+
+	// Para salir de la base:
+		
+	.exit
+
+En Qt	
+^^^^^
+
+- Requiere QT += sql
+- Para averiguar los controladores disponibles, usamos el método estático:
+
+.. code-block:: c
+
+	qDebug() << QSqlDatabase::drivers();  // Devuelve un QStringList
+
+- Un objeto QSqlDatabase representa la conexión a la base
+- Elegimos el controlador y conectamos:
+
+.. code-block:: c
+
+	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+
+	db.setDatabaseName("C:/Qt/db/test"); 
+	if (db.open())
+	    qDebug() << "Conexión exitosa";
+	else
+	    qDebug() << "No se pudo abrir la base";
+
+- En Windows, para usar el archivo Access ``C:/db/base.mdb`` se hace lo siguiente:
+	
+.. code-block:: c
+		
+	QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
+
+	db.setDatabaseName("DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};"
+	                   "DBQ=C:/db/base.mdb"); 
+	if (db.open())
+		qDebug() << "Conexión exitosa";
+
+
+
+		
 	
 Funciones virtuales
 ^^^^^^^^^^^^^^^^^^^
@@ -289,79 +394,6 @@ Consulta a la base de datos
 
 	if (adminDB.conectar(nombreSqlite))
 	    qDebug() << "Conexion exitosa";
-
-		
-Ejercitación para primer parcial
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Ejercicio 11** 
-
-- Definir la siguiente jerarquía de clases:
- 
-.. figure:: images/clase10/clases.png 
-
-- Se pedirá definición de atributos y métodos (en papel y sin utilizar material de consulta)
-- Instanciar objetos de estas clases.
-- Prestar atención sobre los punteros a objetos, ámbitos, parámetros en funciones, modificadores de acceso, ...
-
-**Ejercicio:** Aritmética de punteros - Escribir la salida por consola
-
-.. code-block:: c
-
-	#include <QApplication>
-	#include <QDebug>
-
-	int main(int argc, char** argv)  {
-	    QApplication app(argc, argv);
-
-	    int a = 10, b = 10, c = 10, d = 10, e = 10;
-	    int m[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-	    int *p = &m[2], *q = &m[4];
-
-	    qDebug() << a + m[d/c] + b-- / *q + 10 + e--;
-	    p = m;
-	    qDebug() << e + *p + m[4]++;
-
-	    return 0;
-	}
-	
-
-**Ejercicio 12**
-
-- Comenzar un proyecto vacío con QtCreator y diseñar el siguiente login de usuarios:
- 
-.. figure:: images/clase10/login.png  
-
-- Este login tendrá las siguientes características:
-	- Cuidar muy bien el layout. Notar la ubicación del botón con respecto a los campos.
-	- Definido en la clase Login en los archivos login.h y login.cpp.
-	- La ventana tendrá un tamaño de 250x120 píxeles y llevará por título "Login".
-	- El único usuario válido es (DNI del alumno):(últimos 4 números del DNI)
-	- Ocultar con asteriscos la clave.
-	- Si el usuario y clave no es válido, sólo el campo de la clave se deberá limpiar.
-	- Al fallar la clave 3 veces, la aplicación se cierra. 
-
-- Si el usuario es válido, entonces se ocultará el login y se visualizará un nuevo QWidget como el que sigue:
-
-.. figure:: images/clase10/ventana.png  
- 
-- Este widget tendrá las siguientes características:
- 	- Definido en la clase Ventana en los archivos ventana.h y ventana.cpp.
-	- Con QNetworkAccessManager descargar una imagen cualquiera de 100x100 píxeles.
-	- Esta imagen se mostrará en el QWidget centrada (como muestra el ejemplo).
-	- Dibujar además un cuadrado que envuelva la imagen (como muestra el ejemplo).
-	- La ventana puede tener cualquier tamaño y llevará por título "Ventana".
-
-
-Un par de memes antes del examen
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. figure:: images/clase10/meme2.jpg
-
-.. figure:: images/clase10/meme4.jpg
-
-
-	
 
 
 
