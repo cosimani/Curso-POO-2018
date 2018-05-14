@@ -5,6 +5,21 @@
 Clase 18 - POO 2017 (Aún no preparado)
 ===================
 
+
+:Tarea para Clase 15:
+	Ver `Tutorial Qt QWidget <https://www.youtube.com/watch?v=NpwRtpndqA4>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
+
+	Repasar todo lo que está en GitHub desde la clase 01 hasta la 14
+
+
+
+:Tarea para Clase 18:
+	Traer el ejercicio de la Clase 15 en un ejecutable.
+	
+	Enviarlo por mail antes de las 13 horas del día 15 de mayo
+
+
+
 Clase QFile
 ^^^^^^^^^^^
 
