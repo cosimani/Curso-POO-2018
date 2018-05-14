@@ -35,6 +35,26 @@ Clase QTimer
 	// donde this es el objeto que tiene definido el slot_update().
 	
 
+
+Métodos virtuales de QWidget para capturar eventos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Algunos de ellos:
+
+.. code-block:: c
+
+	virtual void mouseDoubleClickEvent(QMouseEvent* event);
+	virtual void mouseMoveEvent(QMouseEvent* event);
+	virtual void mousePressEvent(QMouseEvent* event);
+	virtual void keyPressEvent(QKeyEvent* event);
+	virtual void resizeEvent(QResizeEvent* event);
+	virtual void moveEvent(QMoveEvent* event);
+	virtual void closeEvent(QCloseEvent* event);
+
+- Estos métodos pueden ser reimplementados en una clase derivada para recibir los eventos.
+
+	
+
 Uso de Qt Designer
 ..................
 
@@ -100,26 +120,6 @@ Uso de Qt Designer
 	- Velocidad (mseg para ir de lado a lado):
 	- QPushButton para actualizar el estado.
 - El fútbol irá golpeando de izquierda a derecha en Ventana.
-
-
-
-
-Métodos virtuales de QWidget para capturar eventos
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-- Algunos de ellos:
-
-.. code-block:: c
-
-	virtual void mouseDoubleClickEvent(QMouseEvent* event);
-	virtual void mouseMoveEvent(QMouseEvent* event);
-	virtual void mousePressEvent(QMouseEvent* event);
-	virtual void keyPressEvent(QKeyEvent* event);
-	virtual void resizeEvent(QResizeEvent* event);
-	virtual void moveEvent(QMoveEvent* event);
-	virtual void closeEvent(QCloseEvent* event);
-
-- Estos métodos pueden ser reimplementados en una clase derivada para recibir los eventos.
 
 
 
