@@ -110,7 +110,7 @@ Uso de Qt Designer
 	    delete ui;
 	}
 
-**Ejercicio 14**
+**Ejercicio 13**
 
 - Usar QtDesigner
 - Definir la clase Ventana que herede de QWidget
@@ -166,7 +166,7 @@ Clase QCryptographicHash
 http://md5calculator.chromefans.org/?langid=es
 
 
-**Ejercicio 13**
+**Ejercicio 14**
 
 - Diseñar una aplicación con un login inicial que valide contra la base
 - Almacenar sólo el hash en MD5 de las contraseñas

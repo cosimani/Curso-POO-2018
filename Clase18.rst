@@ -30,13 +30,13 @@ Clase QFileDialog
 
 	QString file = QFileDialog::getOpenFileName(this, "Abrir", "./", "Imagen (*.png *.jpg)");
 
-**Ejercicio 18**
+**Ejercicio 16**
 
 - Elegir un archivo de imagen del disco con ``QFileDialog`` y dibujarlo en un ``QWidget``.
 - Agregar un botón "Iniciar rotación" que genere la rotación de la imagen sobre su centro.
 
 
-**Ejercicio 19** Al ingresar la URL de una imagen deberá mostrarla como en la figura
+**Ejercicio 17** Al ingresar la URL de una imagen deberá mostrarla como en la figura
 
 .. figure:: images/clase10/imagenes.png  
  
@@ -59,7 +59,7 @@ Creando Instalador
 .. figure:: images/clase14/CrearInstalador.gif
 
 
-**Ejercicio 20**
+**Ejercicio 18**
 
 - Diseñar una aplicación que muestre en un ``QWidget`` cualquier imagen de 50x50
 - La imagen deberá seguir al puntero del mouse cuando esté presionado un botón.
@@ -94,12 +94,12 @@ Señales propias
 - Las signals deben ser compatibles en sus parámetros con los slots a los cuales se conecten.
 - Solamente se declara esta función (Qt se encarga de definirla).
 
-**Ejercicio 21** 
+**Ejercicio 19** 
 
 - Crear un login con un QLabel que funcione como un QPushButton
 - Para esto incorporar al QLabel la señal ``void signal_clic()``
 
-**Ejercicio 22** 
+**Ejercicio 20** 
 
 - Incorporar a un Login una señal que se emita cada vez que un usuario se valide exitosamente
 - Que la señal se llame ``void signal_usuarioLogueado(QString)``
@@ -129,7 +129,7 @@ Uso de una clase propia con QtDesigner
 	
 	}
 
-**Ejercicio 23**
+**Ejercicio 21**
 	- Definir la clase TuLabel que herede de QLabel
 	- Agregar un QLabel a la GUI y promoverlo a TuLabel
 	- Agregar un método void cambiarTexto(QString nuevoTexto)
@@ -139,7 +139,7 @@ Uso de una clase propia con QtDesigner
 
 	ui->tuLabel->cambiarTexto("Sos un TuLabel?");
 	
-**Ejercicio 24** 
+**Ejercicio 22** 
 
 - Crear un login con la clase TuLabel que herede de QLabel y que funcione como un QPushButton
 - Para esto incorporar a TuLabel la señal ``void signal_clic()``
@@ -263,13 +263,13 @@ API de Google Street
 	- pitch - Ángulo de inclinación (predeterminado 0 - entre -90 y 90)
 	- key: Clave de API (ver https://code.google.com/apis/console)
 
-**Ejercicio 16**
+**Ejercicio 23**
 
 - Con la misma idea que la clase Mapa, hacer ahora la clase ``StreetView``. 
 - En un QLineEdit ingresar el domicilio a buscar.
 - Con sólo movimientos del mouse horizontales, girar la rotación entre 0 y 360.
 
-**Ejercicio 17**
+**Ejercicio 24**
 
 - Agregar a ``StreetView`` lo siguiente:
 - Agregar un QSlider para controlar el zoom.
@@ -310,7 +310,7 @@ Enumeraciones
 	    d1.un_dia = Dia::LUN;
 	}
 
-**Ejercicio 15**
+**Ejercicio 25**
  
 .. figure:: images/clase15/ejercicio.jpg 
 
@@ -353,19 +353,19 @@ Clase QFile
 	    qDebug() << linea;
 	}
 
-**Ejercicio 25**
+**Ejercicio 26**
 
 - Elegir un archivo de texto cualquiera con ``QFileDialog`` y mostrarlo sobre un ``QTextEdit``.
 - Agregar dos ``QLineEdit``, uno acompañado con el ``QLabel`` "Buscar" y otro con el "Reemplazar por".
 - Un botón "Reemplazar" realizará la busqueda reemplazará todas las coincidencias encontradas.
 
-**Ejercicio 26**
+**Ejercicio 27**
 
 - En el ejercicio anterior emitir la señal ``signal_reemplazosFinalizados(int cantidad)`` al finalizar la acción.
 - ``int cantidad`` indicará la cantidad de reemplazos realizados, incluyendo el cero si no hubo reemplazos.
 - Conectar esta señal con algún slot cualquiera para probar su funcionamiento.
 
-**Ejercicio 27**
+**Ejercicio 28**
 
 - Usar QtDesigner
 - Definir la clase Ventana que herede de QWidget
@@ -431,7 +431,7 @@ Herencia múltiple
 	    return 0;
 	}
 
-**Ejercicio 28** 
+**Ejercicio 29** 
 
 - Crear una clase base llamada Instrumento y las clases derivadas Guitarra, Bateria y Teclado.  
 - La clase base tiene una función virtual pura llamada ``sonar()``. 
@@ -443,7 +443,7 @@ Herencia múltiple
 - Al llamar a la función ``sonar()``, se deberá publicar "Guitarra suena...", "Teclado suena..." o "Batería suena..." según corresponda.
 - Incluya los métodos ``get`` y ``set`` que crea convenientes.
 
-**Ejercicio 29** 
+**Ejercicio 30** 
 
 - Definir dos QWidgets (una clase Login y una clase Ventana).
 - El Login validará al usuario contra una base SQLite

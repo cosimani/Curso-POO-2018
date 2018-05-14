@@ -7,7 +7,7 @@ Clase 15 - POO 2018
 (Fecha: 8 de mayo)
 
 
-**Ejercicio 9**
+**Ejercicio 11**
 
 - Crear el siguiente método dentro de la clase AdminDB:
 
@@ -25,7 +25,7 @@ Clase 15 - POO 2018
 	QVector<QStringList> select(QString comando); 
 
 
-**Ejercicio 10**
+**Ejercicio 12**
 
 - Diseñar una aplicación para una galería de fotos
 - Debe tener una base con una tabla 'imagenes' que tenga las URLs de imágenes

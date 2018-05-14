@@ -113,7 +113,7 @@ Función virtual pura y clase abstracta
 Ejercitación para primer parcial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Ejercicio 11** 
+**Ejercicio 9** 
 
 - Definir la siguiente jerarquía de clases:
  
@@ -145,7 +145,7 @@ Ejercitación para primer parcial
 	}
 	
 
-**Ejercicio 12**
+**Ejercicio 10**
 
 - Comenzar un proyecto vacío con QtCreator y diseñar el siguiente login de usuarios:
  
