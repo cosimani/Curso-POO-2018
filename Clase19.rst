@@ -10,13 +10,7 @@ Clase 19 - POO 2018
 :Tarea para Clase 20:
 	Ver `Tutorial Qt QWidget <https://www.youtube.com/watch?v=NpwRtpndqA4>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
 
-	Repasar todo lo que está en GitHub desde la clase 01 hasta la 14
-
-
-:Tarea para Clase 18:
-	Traer el ejercicio de la Clase 15 en un ejecutable.
-	
-	Enviarlo por mail antes de las 13 horas del día 15 de mayo
+	Tener listos todos los ejercicios que están en GitHub desde la clase 01 hasta la 19
 
 
 Uso de la Clase QGLWidget
