@@ -127,3 +127,57 @@ http://md5calculator.chromefans.org/?langid=es
 - Si el usuario es válido mostrar cualquier widget ya creado (Maps, Imagen, paint)
 - Registrar en la tabla 'logs' los intentos fallidos de logueo
 
+
+
+
+Clase QFileDialog
+^^^^^^^^^^^^^^^^^
+
+- Permite abrir un cuadro de diálogo para buscar un archivo en disco
+
+.. code-block:: c	
+
+	QString file = QFileDialog::getOpenFileName(this, "Abrir", "./", "Imagen (*.png *.jpg)");
+
+**Ejercicio 15**
+
+- Elegir un archivo de imagen del disco con ``QFileDialog`` y dibujarlo en un ``QWidget``.
+- Agregar un botón "Iniciar rotación" que genere la rotación de la imagen sobre su centro.
+
+
+**Ejercicio 16** Al ingresar la URL de una imagen deberá mostrarla como en la figura
+
+.. figure:: images/clase10/imagenes.png  
+ 
+- Al hacer clic sobre una de estas imágenes, deberá ocultarse la misma. 
+- Cuando se oculta la segunda imagen, cerrar la aplicación.
+
+
+Creando Instalador
+^^^^^^^^^^^^^^^^^^
+
+**Mexican explanation**
+
+|ImageLink|_ 
+
+.. |ImageLink| image:: /images/clase14/mexicano.gif
+.. _ImageLink: https://www.youtube.com/watch?v=rr6G7GU52Wc
+
+**Capturas de pantalla de la creación**
+
+.. figure:: images/clase14/CrearInstalador.gif
+
+
+**Ejercicio 17**
+
+- Diseñar una aplicación que muestre en un ``QWidget`` cualquier imagen de 50x50
+- La imagen deberá seguir al puntero del mouse cuando esté presionado un botón.
+- Utilizar ``QTimer`` para actualizar la posición de la imagen dando un efecto inercial
+
+
+Ejecutable del ejercicio de arrastrar y soltar la imagen
+........................................................
+
+- `Descargar Instalador de MouseMove (Windows 7 o superior - 64 bits) <https://drive.google.com/file/d/0B3bNJFNPgLHnc3ota21TVVBKb0k/view?usp=sharing>`_
+
+- `Descargar MouseMove (Linux - 64 bits) <https://drive.google.com/file/d/0B3bNJFNPgLHnMGtzWjlQa3RIc1E/view?usp=sharing>`_
