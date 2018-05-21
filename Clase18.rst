@@ -14,7 +14,9 @@ Clase QTimer
 - Conectamos la señal ``timeout()`` con algún slot.
 - Con ``start()`` comenzamos y la señal ``timeout()`` se emitirá al terminar.
 
+
 **Ejemplo (repetitivo):** Temporizador que cada 1000 mseg llamará a ``slot_update()``
+
 
 .. code-block:: c
 
@@ -22,12 +24,15 @@ Clase QTimer
 	connect(timer, SIGNAL(timeout()), this, SLOT(slot_update()));
 	timer->start(1000);
  
+
 **Para una sola ejecución**
 
 - Para temporizador de una sola ejecución usar ``setSingleShot(true)``
 - El método estático ``QTimer::singleShot()`` nos permite la ejecución.
 
+
 **Ejemplo:** Luego de 200 mseg se llamará a ``slot_update()``:
+
 
 .. code-block:: c
 
@@ -41,6 +46,7 @@ Métodos virtuales de QWidget para capturar eventos
 
 - Algunos de ellos:
 
+
 .. code-block:: c
 
 	virtual void mouseDoubleClickEvent(QMouseEvent* event);
@@ -50,6 +56,7 @@ Métodos virtuales de QWidget para capturar eventos
 	virtual void resizeEvent(QResizeEvent* event);
 	virtual void moveEvent(QMoveEvent* event);
 	virtual void closeEvent(QCloseEvent* event);
+
 
 - Estos métodos pueden ser reimplementados en una clase derivada para recibir los eventos.
 
@@ -83,11 +90,13 @@ Clase QCryptographicHash
 
 	QByteArray result() const
 
+
 **Método estático**
 
 .. code-block:: c
 
 	QByteArray hash(const QByteArray & data, Algorithm metodo)
+
 
 **Otros métodos útiles**
 
@@ -104,6 +113,8 @@ Clase QCryptographicHash
 
 	QcryptographicHash::hash(leClave->text().toUtf8(), QCryptographicHash::Md5).toHex()
 	
+
+
 **Calculadora MD5 online**
 
 http://md5calculator.chromefans.org/?langid=es
@@ -162,6 +173,7 @@ Creando Instalador
 - La imagen deberá seguir al puntero del mouse cuando esté presionado un botón.
 - Utilizar ``QTimer`` para actualizar la posición de la imagen dando un efecto inercial
 
+
 Ejecutable del ejercicio de arrastrar y soltar la imagen
 ........................................................
 
@@ -180,6 +192,7 @@ Señales propias
 	int i = 5;
 	emit signal_enviarEntero(i);
 
+
 - La función ``enviarEntero(int a)`` debe estar declarada con el modificador de acceso ``signals``
 
 .. code-block:: c	
@@ -187,20 +200,24 @@ Señales propias
 	signals:
 	    void signal_enviarEntero(int);
 
+
 - No olvidarse de la macro ``Q_OBJECT`` para permitir a esta clase usar signals y slots.
 - Las signals deben ser compatibles en sus parámetros con los slots a los cuales se conecten.
 - Solamente se declara esta función (Qt se encarga de definirla).
+
 
 **Ejercicio 18** 
 
 - Crear un login con un QLabel que funcione como un QPushButton
 - Para esto incorporar al QLabel la señal ``void signal_clic()``
 
+
 **Ejercicio 19** 
 
 - Incorporar a un Login una señal que se emita cada vez que un usuario se valide exitosamente
 - Que la señal se llame ``void signal_usuarioLogueado(QString)``
 - El QString que envía es el nombre de usuario
+
 
 Uso de una clase propia con QtDesigner
 ======================================
@@ -218,6 +235,7 @@ Uso de una clase propia con QtDesigner
 - La clase MiLabel deberá heredar de QLabel
 - El constructor debe tener como parámetro:
 
+
 .. code-block::
 
 	MiLabel(QWidget *parent = 0);  // Esto en miLabel.h
@@ -226,16 +244,19 @@ Uso de una clase propia con QtDesigner
 	
 	}
 
+
 **Ejercicio 20**
-	- Definir la clase TuLabel que herede de QLabel
-	- Agregar un QLabel a la GUI y promoverlo a TuLabel
-	- Agregar un método void cambiarTexto(QString nuevoTexto)
-	- Usar ese método desde la clase Principal de la siguiente forma:
+
+- Definir la clase TuLabel que herede de QLabel
+- Agregar un QLabel a la GUI y promoverlo a TuLabel
+- Agregar un método void cambiarTexto(QString nuevoTexto)
+- Usar ese método desde la clase Principal de la siguiente forma:
 
 .. code-block::
 
 	ui->tuLabel->cambiarTexto("Sos un TuLabel?");
-	
+
+
 **Ejercicio 21** 
 
 - Crear un login con la clase TuLabel que herede de QLabel y que funcione como un QPushButton
@@ -254,6 +275,7 @@ const
 	const float pi = 3.14;
 	const peso = 67;	// Si no se indica el tipo entonces es int
 					    // Ojo: Sólo en compiladores viejos
+
 
 
 const con punteros
@@ -283,11 +305,13 @@ const en parámetros de funciones
 
 	int funcion(const char* ch)
 
+
 - Lo mismo sucede con referencias
 
 .. code-block:: c	
 
 	int funcion(const char& ch)
+
 
 const en clases
 ^^^^^^^^^^^^^^^
@@ -308,6 +332,7 @@ const en clases
 	    }
 	}; 
 
+
 .. code-block:: c	
 
 	// A la variable i sólo la puede inicializar el constructor y sólo con la forma:
@@ -317,6 +342,7 @@ const en clases
 	ClaseA()   { 
 	    i = 8;  // Compila? i es de solo lectura o no
 	}   
+
 
 - Aplicado a métodos de una clase no permite modificar ninguna propiedad de la clase
 
