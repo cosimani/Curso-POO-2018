@@ -273,7 +273,7 @@ Uso de una clase propia con QtDesigner
 
 
 const
-.....
+^^^^^
 
 - Una variable definida como const no podrá ser modificada a lo largo del programa (se crea como sólo lectura)
 - Se puede aplicar a cualquier tipo:
