@@ -7,173 +7,200 @@ Clase 19 - POO 2018
 (Fecha: 22 de mayo)
 
 
-:Tarea para Clase 20:
-	Ver `Tutorial Qt QWidget <https://www.youtube.com/watch?v=NpwRtpndqA4>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
+Clase QCryptographicHash
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-	Tener listos todos los ejercicios que están en GitHub desde la clase 01 hasta la 19
-
-
-Uso de la Clase QGLWidget
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-- Se requiere lo siguiente en el .pro
+- Provee la generación de la clave hash 
+- Soporta MD5, MD4 y SHA-1
 
 .. code-block:: c
 
-	QT += opengl
+	enum Algorithm { Md4, Md5, Sha1 }
 
-	win32:LIBS += -lopengl32
-	win32:LIBS += -lglu32
+	QCryptographicHash(Algorithm metodo)
+
+	void addData(const QByteArray & data)
 	
-	unix:LIBS += -lGLU
+	void reset()
+
+	QByteArray result() const
+
+
+**Método estático**
 
 .. code-block:: c
 
-	#include <QGLWidget>
+	QByteArray hash(const QByteArray & data, Algorithm metodo)
 
-	class MiOpenGL : public QGLWidget  {
-	    Q_OBJECT
-		
-	public:
-	    MiOpenGL();
 
-	protected:
-	    void initializeGL();	
-	    void resizeGL(int w, int h);
-	    void paintGL();
-	};
+**Otros métodos útiles**
+
+.. code-block:: c
+
+	QByteArray QByteArray::toHex()
+	// Devuelve en hexadecimal
+	// Útil para enviar por url una clave hash MD5
+	// Hexadecimal tiene sólo caracteres válidos para URL
+
+**Ejemplo**: Obtener MD5 de la clave ingresada en un QlineEdit:
+
+.. code-block:: c
+
+	QcryptographicHash::hash(leClave->text().toUtf8(), QCryptographicHash::Md5).toHex()
 	
-	MiOpenGL::MiOpenGL()  {
-	
-	}
 
-	void MiOpenGL::initializeGL()  { 
-	    glClearColor(0,0,0,0);
-	}
 
-	void MiOpenGL::resizeGL(int w, int h)  {
-	    // Porción de ventana donde puede dibujar.
-	    glViewport(0, 0, w, h);
+**Calculadora MD5 online**
 
-	    // Especifica la matriz actual: matriz de proyección (GL_PROJECTION), matriz de modelo
-	    // (GL_MODELVIEW) y matriz de textura (GL_TEXTURE). 
-	    glMatrixMode(GL_PROJECTION);
+http://md5calculator.chromefans.org/?langid=es
 
-	    // Con esto cargamos en el "tipo" de matriz actual (matriz identidad - como resetear).
-	    // Es una matriz 4x4 llena de ceros salvo la diagonal que contiene unos. 
-	    glLoadIdentity();
 
-	    // Para delimitar la zona de trabajo en una caja.
-	    glOrtho(-1, 1, -1, 1, -1, 1);
+**Ejercicio 13**
 
-	    // Se vuelve a este tipo de matrices, que afecta a las primitivas geométricas.
-	    glMatrixMode(GL_MODELVIEW);
-	}
+- Diseñar una aplicación con un login inicial que valide contra la base
+- Almacenar sólo el hash en MD5 de las contraseñas
+- Si el usuario es válido mostrar cualquier widget ya creado (Maps, Imagen, paint)
+- Registrar en la tabla 'logs' los intentos fallidos de logueo
 
-	void MiOpenGL::paintGL()  {
-	    // Borra un buffer.
-	    glClear(GL_COLOR_BUFFER_BIT);
 
-	    //  Carga la matriz identidad.
-	    glLoadIdentity();
 
-	    // Acá se inserta el código para dibujar 
 
-	    // Volcamos en pantalla lo que se creó en memoria.
-	    glFlush();
-	}
+Clase QFileDialog
+^^^^^^^^^^^^^^^^^
 
-**Ejercicio 30**
+- Permite abrir un cuadro de diálogo para buscar un archivo en disco
 
-- Dibujar un triángulo en el plano ``z=-50``
-- Utilizar el teclado para que al presionar la tecla C, el triángulo cambie de color.
+.. code-block:: c	
 
-Rotación de la escena
-^^^^^^^^^^^^^^^^^^^^^
+	QString file = QFileDialog::getOpenFileName(this, "Abrir", "./", "Imagen (*.png *.jpg)");
 
-- Gira un ángulo en sentido contrario a las agujas del reloj.
-- Sobre el eje formado desde el origen hasta el punto (x, y, z).
+**Ejercicio 14**
 
-.. code-block:: c
+- Elegir un archivo de imagen del disco con ``QFileDialog`` y dibujarlo en un ``QWidget``.
+- Agregar un botón "Iniciar rotación" que genere la rotación de la imagen sobre su centro.
 
-	// glRotatef(angulo, x, y, z); 
-	glRotatef(5, 0, 0, 1);  // gira 5° con respecto al eje z
 
-Traslación de la escena
-^^^^^^^^^^^^^^^^^^^^^^^
+**Ejercicio 15** Al ingresar la URL de una imagen deberá mostrarla como en la figura
 
-- Desplaza el punto (0, 0, 0) a la nueva posición (x, y, z).
+.. figure:: images/clase10/imagenes.png  
+ 
+- Al hacer clic sobre una de estas imágenes, deberá ocultarse la misma. 
+- Cuando se oculta la segunda imagen, cerrar la aplicación.
 
-.. code-block:: c
 
-	// glTranslatef(x, y, z);
-	glTranslatef(2, 0, 0);  // Desplaza 2 unidades en el eje x
+Creando Instalador
+^^^^^^^^^^^^^^^^^^
 
-Escalado de la escena
-^^^^^^^^^^^^^^^^^^^^^
+**Mexican explanation**
 
-- Escala. Con valores mayores a 1, se amplía. Entre 0 y 1 se reduce.
+|ImageLink|_ 
 
-.. code-block:: c
+.. |ImageLink| image:: /images/clase14/mexicano.gif
+.. _ImageLink: https://www.youtube.com/watch?v=rr6G7GU52Wc
 
-	// glScalef(x, y, z);
-	glScalef(1, 2, 1);  // escala el doble en vertical
-	
-Objetos ocultos
+**Capturas de pantalla de la creación**
+
+.. figure:: images/clase14/CrearInstalador.gif
+
+
+**Ejercicio 16**
+
+- Diseñar una aplicación que muestre en un ``QWidget`` cualquier imagen de 50x50
+- La imagen deberá seguir al puntero del mouse cuando esté presionado un botón.
+- Utilizar ``QTimer`` para actualizar la posición de la imagen dando un efecto inercial
+
+
+Ejecutable del ejercicio de arrastrar y soltar la imagen
+........................................................
+
+- `Descargar Instalador de MouseMove (Windows 7 o superior - 64 bits) <https://drive.google.com/file/d/0B3bNJFNPgLHnc3ota21TVVBKb0k/view?usp=sharing>`_
+
+- `Descargar MouseMove (Linux - 64 bits) <https://drive.google.com/file/d/0B3bNJFNPgLHnMGtzWjlQa3RIc1E/view?usp=sharing>`_
+
+
+
+
+Señales propias
 ^^^^^^^^^^^^^^^
 
-- En 3D un objeto puede estar detrás de otro.
-- Por defecto, OpenGL no tiene en cuenta esto. Pinta siguiendo el orden en el código fuente,.
-- El siguiente código no se vería muy real:
+- Si necesitamos enviar una señal se utiliza la palabra reservada ``emit``.
 
-.. code-block:: c
+.. code-block:: c	
 
-	glColor3f(0, 1, 0);
-	glBegin(GL_TRIANGLES);
-	    glVertex3f(-5, -5, 5);
-	    glVertex3f(0, 0, 0);
-	    glVertex3f(5, -5, 5);
-	glEnd();
-
-	glColor3f(0, 0, 1);
-	glPointSize(5);
-	glBegin(GL_POINTS);
-	    glVertex3f(0, -1, 0);
-	    glVertex3f(0, -2, 5);
-	glEnd();
-
-- Para solucionar activamos el buffer de profundidad
-
-.. code-block:: c
-
-	glEnable(GL_DEPTH_TEST); 
-
-- Cada vez que se renderiza la escena, limpiamos la pantalla
-
-.. code-block:: c
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-Seguimiento continuo del mouse
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-- Al usar ``mouseMoveEvent`` ¿por qué sólo se sigue al mouse al presionar un botón?
-
-.. code-block:: c
-
-	setMouseTracking(bool enable)
-
-- Es un método de la clase QWidget
-- Activa el seguimiento continuo del mouse sobre un QWidget.
-- Por defecto se encuentra desactivado.
-- Cuando está desactivado sólo se reciben los eventos del movimiento del mouse cuando al menos se presiona un botón del mismo.
-
-**Ejercicio 31**
-
-- Dibujar un cajón deforme sin tapa con un color distinto en cada lado.
-- Utilizar el teclado para hacerlo rotar sobre los tres ejes.
+	int i = 5;
+	emit signal_enviarEntero(i);
 
 
+- La función ``enviarEntero(int a)`` debe estar declarada con el modificador de acceso ``signals``
+
+.. code-block:: c	
+
+	signals:
+	    void signal_enviarEntero(int);
+
+
+- No olvidarse de la macro ``Q_OBJECT`` para permitir a esta clase usar signals y slots.
+- Las signals deben ser compatibles en sus parámetros con los slots a los cuales se conecten.
+- Solamente se declara esta función (Qt se encarga de definirla).
+
+
+**Ejercicio 17** 
+
+- Crear un login con un QLabel que funcione como un QPushButton
+- Para esto incorporar al QLabel la señal ``void signal_clic()``
+
+
+**Ejercicio 18** 
+
+- Incorporar a un Login una señal que se emita cada vez que un usuario se valide exitosamente
+- Que la señal se llame ``void signal_usuarioLogueado(QString)``
+- El QString que envía es el nombre de usuario
+
+
+
+
+Uso de una clase propia con QtDesigner
+======================================
+
+- Deben heredar de algún QWidget
+- Colocamos el widget (clase base) con QtDesigner
+- Clic derecho "Promote to"
+
+.. figure:: images/clase18/qtdesigner.png
+					 
+- Base class name: QLabel
+- Promoted class name: MiLabel
+- Header file: miLabel.h
+- Add (y con esto queda disponible para promover)
+- La clase MiLabel deberá heredar de QLabel
+- El constructor debe tener como parámetro:
+
+
+.. code-block::
+
+	MiLabel(QWidget *parent = 0);  // Esto en miLabel.h
+
+	MiLabel::MiLabel(QWidget *parent) : QLabel(parent)  {  // Esto en miLabel.cpp
+	
+	}
+
+
+**Ejercicio 19**
+
+- Definir la clase TuLabel que herede de QLabel
+- Agregar un QLabel a la GUI y promoverlo a TuLabel
+- Agregar un método void cambiarTexto(QString nuevoTexto)
+- Usar ese método desde la clase Principal de la siguiente forma:
+
+.. code-block::
+
+	ui->tuLabel->cambiarTexto("Sos un TuLabel?");
+
+
+**Ejercicio 20** 
+
+- Crear un login con la clase TuLabel que herede de QLabel y que funcione como un QPushButton
+- Para esto incorporar a TuLabel la señal ``void signal_clic()``
 
 
 
