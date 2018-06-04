@@ -91,7 +91,7 @@ Herencia múltiple
 	    return 0;
 	}
 
-**Ejercicio 27** 
+**Ejercicio 26** 
 
 - Crear una clase base llamada Instrumento y las clases derivadas Guitarra, Bateria y Teclado.  
 - La clase base tiene una función virtual pura llamada ``sonar()``. 
@@ -103,7 +103,7 @@ Herencia múltiple
 - Al llamar a la función ``sonar()``, se deberá publicar "Guitarra suena...", "Teclado suena..." o "Batería suena..." según corresponda.
 - Incluya los métodos ``get`` y ``set`` que crea convenientes.
 
-**Ejercicio 28** 
+**Ejercicio 27** 
 
 - Definir dos QWidgets (una clase Login y una clase Ventana).
 - El Login validará al usuario contra una base SQLite
@@ -314,7 +314,7 @@ Uso de la Clase QGLWidget
 	    glFlush();
 	}
 
-**Ejercicio 30**
+**Ejercicio 28**
 
 - Dibujar un triángulo en el plano ``z=-50``
 - Utilizar el teclado para que al presionar la tecla C, el triángulo cambie de color.
@@ -399,7 +399,7 @@ Seguimiento continuo del mouse
 - Por defecto se encuentra desactivado.
 - Cuando está desactivado sólo se reciben los eventos del movimiento del mouse cuando al menos se presiona un botón del mismo.
 
-**Ejercicio 31**
+**Ejercicio 29**
 
 - Dibujar un cajón deforme sin tapa con un color distinto en cada lado.
 - Utilizar el teclado para hacerlo rotar sobre los tres ejes.

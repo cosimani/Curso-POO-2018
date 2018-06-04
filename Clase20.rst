@@ -223,15 +223,4 @@ Clase QFile
 - ``int cantidad`` indicará la cantidad de reemplazos realizados, incluyendo el cero si no hubo reemplazos.
 - Conectar esta señal con algún slot cualquiera para probar su funcionamiento.
 
-**Ejercicio 26**
-
-- Usar QtDesigner
-- Definir la clase Ventana que herede de QWidget
-- Usar const.
-- Buscar una imagen de un fútbol con formato PNG (para usar transparencias).
-- Ventana tendrá un formulario que pide al usuario:
-	- Diámetro del fútbol (píxeles):
-	- Velocidad (mseg para ir de lado a lado):
-	- QPushButton para actualizar el estado.
-- El fútbol irá golpeando de izquierda a derecha en Ventana.
 
