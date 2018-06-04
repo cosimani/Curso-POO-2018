@@ -16,8 +16,8 @@ const
 .. code-block:: c	
 
 	const float pi = 3.14;
-	const peso = 67;	// Si no se indica el tipo entonces es int
-					    // Ojo: Sólo en compiladores viejos
+	const peso = 67;  // Si no se indica el tipo entonces es int
+	                  // Aunque sólo en compiladores viejos
 
 
 
@@ -27,14 +27,14 @@ const con punteros
 .. code-block:: c	
 
 	int x = 10;
-	int* px = &x;		// normal
+	int* px = &x;  // normal
 
 	const int y = 10;
-	int* py = &y;	// El compilador dirá: "invalid conversion from const int*
-					// to int*". La inversa sí se permite
+	int* py = &y;  // El compilador dirá: "invalid conversion from const int*
+	               // to int*". La inversa sí se permite
 
 	int y = 10;
-	const int* py = &y;	// permitido (pero el contenido es de sólo lectura)
+	const int* py = &y;  // permitido (pero el contenido es de sólo lectura)
 
 	*py = 6;  // No permitido. El contenido apuntado es de sólo lectura
 
