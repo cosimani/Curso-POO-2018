@@ -5,6 +5,15 @@
 Clase 22 - POO 2017 (Aún no preparado)
 ===================
 
+
+Trabajo en proyectos
+^^^^^^^^^^^^^^^^^^^^
+
+- Las tareas están propuestas en trello.com
+
+.. figure:: images/clase20/trello.png
+
+
 Funciones inline
 ================
 
@@ -220,7 +229,7 @@ Levantar base de datos a QTableView
 	    tableModelAlumnos->revertAll();
 	}
 
-**Ejercicio 36**
+**Ejercicio 33**
 
 - Hacerlo funcionar mostrando la tabla usuarios y su relación con tabla carreras
 - Tabla alumnos: id, legajo, nombre, apellido, mail, id_carrera

@@ -2,38 +2,22 @@
 
 .. _rcs_subversion:
 
-Clase 21 - POO 2017 (Aún no preparado)
+Clase 21 - POO 2018
 ===================
-
-Trabajo en proyectos
-^^^^^^^^^^^^^^^^^^^^
-
-- Las tareas están propuestas en trello.com
-
-.. figure:: images/clase20/trello.png
+(Fecha: 5 de junio)
 
 
-
-
-
-
-:Tarea para Clase 20:
+:Tarea para Clase 22:
 	Ver `Tutorial Qt QWidget <https://www.youtube.com/watch?v=NpwRtpndqA4>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
 
-	Tener listos todos los ejercicios que están en GitHub desde la clase 01 hasta la 19
-
-
-
-
-
-:Tarea para Clase 23:
 	Ver `Tutorial Qt QFile <https://www.youtube.com/watch?v=zDA5FKfRxJA>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
 
 	Ver `Tutorial Qt QDir <https://www.youtube.com/watch?v=wfabCN1oJpE>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
 
 	Ver `Tutorial Qt Resource file <https://www.youtube.com/watch?v=u8xKE0zHLsE>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_	
 
-	Repasar todo lo que está en GitHub sobre OpenGL hasta la clase 19
+	Tener listos todos los ejercicios que están en GitHub desde la clase 01 hasta la 20
+
 
 
 
@@ -236,14 +220,6 @@ Dibujando primitivas
 	glEnd();
 
 
-
-
-
-
-
-
-
-
 Uso de la Clase QGLWidget
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -406,23 +382,6 @@ Seguimiento continuo del mouse
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Modelo de sombreado
 ^^^^^^^^^^^^^^^^^^^
 
@@ -531,7 +490,7 @@ Modelo de sombreado
 				   
 .. figure:: images/clase22/lookat.png		
 
-**Ejercicio 33**
+**Ejercicio 30**
 
 - Marcar 4 puntos en la escena donde se haga clic con el mouse.
 - Ni bien se marque el 4to, automáticamente se generará el polígono de 4 vértices.
@@ -539,13 +498,13 @@ Modelo de sombreado
 - Con A y D se rota sobre el eje Y.
 - Con W y S se rota sobre el eje X.
 
-**Ejercicio 34**
+**Ejercicio 31**
 
 - Dibujar un cuadrado cualquiera en el plano z=-2.
 - Controlar la posición de la cámara con las teclas.
 - La cámara siempre vertical y mirando al punto (0, 0, -100).
 
-**Ejercicio 35**
+**Ejercicio 32**
 
 - Dibujar una ruta con la línea blanca interrumpida.
 - Con las teclas Up y Down acelerar y frenar
