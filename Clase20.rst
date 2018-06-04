@@ -129,13 +129,13 @@ API de Google Street
 	- pitch - Ángulo de inclinación (predeterminado 0 - entre -90 y 90)
 	- key: Clave de API (ver https://code.google.com/apis/console)
 
-**Ejercicio 22**
+**Ejercicio 21**
 
 - Con la misma idea que la clase Mapa, hacer ahora la clase ``StreetView``. 
 - En un QLineEdit ingresar el domicilio a buscar.
 - Con sólo movimientos del mouse horizontales, girar la rotación entre 0 y 360.
 
-**Ejercicio 23**
+**Ejercicio 22**
 
 - Agregar a ``StreetView`` lo siguiente:
 - Agregar un QSlider para controlar el zoom.
@@ -174,7 +174,7 @@ Enumeraciones
 	    d1.un_dia = Dia::LUN;
 	}
 
-**Ejercicio 24**
+**Ejercicio 23**
  
 .. figure:: images/clase15/ejercicio.jpg 
 
@@ -211,19 +211,19 @@ Clase QFile
 	    qDebug() << linea;
 	}
 
-**Ejercicio 25**
+**Ejercicio 24**
 
 - Elegir un archivo de texto cualquiera con ``QFileDialog`` y mostrarlo sobre un ``QTextEdit``.
 - Agregar dos ``QLineEdit``, uno acompañado con el ``QLabel`` "Buscar" y otro con el "Reemplazar por".
 - Un botón "Reemplazar" realizará la busqueda reemplazará todas las coincidencias encontradas.
 
-**Ejercicio 26**
+**Ejercicio 25**
 
 - En el ejercicio anterior emitir la señal ``signal_reemplazosFinalizados( int cantidad )`` al finalizar la acción.
 - ``int cantidad`` indicará la cantidad de reemplazos realizados, incluyendo el cero si no hubo reemplazos.
 - Conectar esta señal con algún slot cualquiera para probar su funcionamiento.
 
-**Ejercicio 27**
+**Ejercicio 26**
 
 - Usar QtDesigner
 - Definir la clase Ventana que herede de QWidget

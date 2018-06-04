@@ -91,7 +91,7 @@ Herencia múltiple
 	    return 0;
 	}
 
-**Ejercicio 28** 
+**Ejercicio 27** 
 
 - Crear una clase base llamada Instrumento y las clases derivadas Guitarra, Bateria y Teclado.  
 - La clase base tiene una función virtual pura llamada ``sonar()``. 
@@ -103,7 +103,7 @@ Herencia múltiple
 - Al llamar a la función ``sonar()``, se deberá publicar "Guitarra suena...", "Teclado suena..." o "Batería suena..." según corresponda.
 - Incluya los métodos ``get`` y ``set`` que crea convenientes.
 
-**Ejercicio 29** 
+**Ejercicio 28** 
 
 - Definir dos QWidgets (una clase Login y una clase Ventana).
 - El Login validará al usuario contra una base SQLite
